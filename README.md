@@ -4,7 +4,7 @@ A additional means to upload files to discord.
 
 ## Setup Instructions
 
- - The first step is to go into settings => plugin s=> BetterUploads => Agreements and agree to the User Data Agreement
+ - The first step is to go into settings => plugins=> BetterUploads => Agreements and agree to the User Data Agreement
  - Refresh discord by pressing CTRL+R
  - Configure BetterUploads to your liking, although the settings provided should work out of the box
  
