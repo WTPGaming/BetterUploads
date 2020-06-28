@@ -80,19 +80,13 @@ var BetterUploads = (() => {
 
         onStart() {
 			var KeyPressedMap = {};
-			try{
-				BdApi.getData("BetterUploads", "uploads");
-			}catch{
+			if(!BdApi.getData("BetterUploads", "uploads")){
 				BdApi.setData("BetterUploads", "uploads", {});
 			}
-			try{
-				BdApi.getData("BetterUploads", "codenames");
-			}catch{
+			if(!BdApi.getData("BetterUploads", "codenames")){
 				BdApi.setData("BetterUploads", "codenames", ["abecedarian","abracadabra","accoutrements","adagio","aficionado","agita","agog","akimbo","alfresco","aloof","ambrosial","amok","ampersand","anemone","anthropomorphic","antimacassar","aplomb","apogee","apoplectic","appaloosa","apparatus","archipelago","atingle","avuncular","azure","babushka","bailiwick","bafflegab","balderdash","ballistic","bamboozle","bandwagon","barnstorming","beanpole","bedlam","befuddled","bellwether","berserk","bibliopole","bigmouth","bippy","blabbermouth","blatherskite","blindside","blob","blockhead","blowback","blowhard","blubbering","bluestockings","boing","boffo (boffola)","bombastic","bonanza","bonkers","boondocks","boondoggle","borborygmus","bozo","braggadocio","brainstorm","brannigan","breakneck","brouhaha","buckaroo","bucolic","buffoon","bugaboo","bugbear","bulbous","bumbledom","bumfuzzle","bumpkin","bungalow","bunkum","bupkis","burnsides","busybody","cacophony","cahoots","calamity","calliope","candelabra","canoodle","cantankerous","catamaran","catastrophe","catawampus","caterwaul","chatterbox","chichi","chimerical","chimichanga","chitchat","clandestine","claptrap","clishmaclaver","clodhopper","cockamamie","cockatoo","codswallop","collywobbles","colossus","comeuppance","concoction","conniption","contraband","conundrum","convivial","copacetic","corkscrew","cornucopia","cowabunga","coxcomb","crackerjack","crescendo","crestfallen","cryptozoology","cuckoo","curlicue","curmudgeon","demitasse","denouement","desperado","diaphanous","diddly-squat","digeridoo","dilemma","dillydally","dimwit","diphthong","dirigible","discombobulated","dodecahedron","doldrums","donkeyman","donnybrook","doodad","doohickey (this is what I call a library due date card)","doppelganger","dumbfounded","dumbwaiter","dunderhead","earwig","eavesdrop","ebullient","effervescence","egads","eggcorn","egghead","elixir","ephemeral","epiphany","eucatastrophe","extraterrestrial","finagle","fandango","festooned","fez","fiasco","fiddle-footed","fiddlesticks","finicky","firebrand","fishwife","fisticuffs","flabbergasted","flapdoodle","flibbertigibbet","flimflam","flippant","floccinaucinihilipilification","flophouse","flotsam","flummery","flummoxed","flyaway","flyspeck","folderol","foofaraw","foolhardy","foolscap","footloose","fopdoodle","fortuitous","fracas","frangipani","freewheeling","fricassee","frippery","frogman","froufrou","fuddy-duddy","fussbudget","futz","gadfly","gadzooks","gallimaufry","gangplank","gangway","gargoyle","gasbag","gazebo","gazpacho","gewgaw","genteel","ghostwriter","gibberish","gimcrack","gizmo","glabella","glitch","globetrotter","gobbledygook","gobsmacked","goosebump","gooseflesh","gorgonzola","gossamer","grandiloquent","greenhorn","guffaw","gumshoe","guru","gussied","guttersnipe","haberdashery","haboob","hairpin","halcyon","halfwit","hangdog","haphazard","harebrained","harumph","harum-scarum","headlong","heartstrings","heebie-jeebie","heirloom","helter-skelter","hemidemisemiquaver","heyday","higgledy-piggledy","highfalutin","hijinks","hillbilly","hippocampus","hippogriff","hobbledehoy","hobnobbed","hocus-pocus","hodgepodge","hogwash","hokum","hoodoo","hoodwink","hooey","hooligan","hoopla","hootenanny","hornswoggle","horsefeathers","hotbed","hotfoot","hothead","hubbub","hullabaloo","humbug","humdinger","humdrum","hunky-dory","hurly-burly","hushpuppy","huzzah","hyperbole","idiom","idiosyncrasies","igloo","ignoramus","impromptu","incognito","incorrigible","incredulous","indomitable","indubitably","infinitesimal","interloper","interrobang","ironclad","izzard","jabberwocky","jacuzzi","jalopy","jamboree","jargogle","jawbreaker","jetsam","jibber-jabber","jitney","jubilee","juggernaut","jujubes","jumbo","junket","juxtaposition","kaleidoscope","kaput","kerfuffle","kerplunk","kibosh","killjoy","kismet","knickerbocker","knickknack","kowtow","kumquat","kvetch","lackadaisical","lagoon","lambasted","lampoon","landlubber","laughingstock","lexicographer","limburger","lingo","loco","loggerhead","logjam","logophile","logorrhea","lollapalooza","lollygag","loofah","loony","loophole","lugubrious","lummox","machinations","madcap","maelstrom","magnificent","majordomo","malapropism","malarkey","manifesto","mastermind","mayhem","mealymouthed","mellifluous","menagerie","miasma","miffed","milquetoast","misanthrope","mishmash","moocher","mojo (also a character in THE MONSTORE)","mollycoddle","mondegreen","moniker","monkeyshines","monsoon","mnemonic","moonstruck","muckety-muck","mudpuppy","mudslinger","muffuletta","mufti","mulligatawny","mumbo-jumbo","murmuration","muumuu","nabob","namby-pamby","nimrod","nincompoop","nitwit","nomenclature","nonplussed","noodge","nudnik","numbskull","onomatopoeia","oomph","orotund","outfox","outlandish","oxymoron","pachyderm","pagoda","palindrome","palomino","panache","pandemonium","pantaloons","papyrus","parabola","parallelogram","parapet","paraphernalia","pedagogue","peewee","pell-mell","persimmon","persnickety","pettifogger","phalanx","phantasmagorical","phantonym","phylactery","piffle","pizzazz","plethora","pogo","pogonip","pollex","pollywog","poltroon","pomposity","poppycock","portmanteau","potpourri","pseudonym","pugnacious","pulchritudinous","pusillanimous","pussyfoot","quibble","quicksilver","quicksticks","quiddle","quinzee","quirky","quixotic","quizzity","rabble-rouser","raconteur","rainmaker","ragamuffin","ragtag","ramshackle","ransack","rapscallion","razzle-dazzle","razzmatazz","rejigger","rendezvous","resplendent","rickrack","ricochet","riffraff","rigmarole","riposte","roundabout","roustabout","rubberneck","ruckus","ruffian","rugrat","rumpus","sabayon","sashay","sassafras","scalawag (also scallywag)","scatterbrain","schadenfreude","schlep","schluffy","schmooze","schmutz","scintillating","scrofulous","scrumdiddlyumptious (Dahlism)","scuttlebutt","serendipity","sesquipedalian","shabang","shenanigans","skedaddle","skirmish","skullduggery","slapdash","slapstick","slipshod","smithereens","smorgasbord","snollygoster","sobriquet","sojourn","spellbind","splendiferous","squeegee","squooshy","staccato","stupefaction","succotash","supercilious","superfluous","surreptitious","Svengali","swashbuckler","switcheroo","swizzlestick","synchronicity","syzygy","talisman","taradiddle","tchotchke","teepee","telekinesis","thingamabob","thingamajig","thunderstruck","tidbit","tintinnabulation","toadstool","toady","tomfoolery","tommyrot","toothsome","topsy-turvy","trapezoid","tub-thumper","tumultuous","typhoon","ululation","umlaut","umpteen","usurp","uvula","vagabond","vamoose","verboten","verisimilitude","vermicious (well, if I included one Dahlism, why not another?)","vertigo","verve","virtuoso","vivacious","vuvuzela","wackadoodle","wallflower","wanderlust","whatchamacallit","whatsis","whimsical","whippersnapper","whirligig","whirlybird","whizbang","whodunit","whoop","widget","wigwam","willy-nilly","windbag","wipeout","wiseacre","wisecrack","wisenheimer","wishy-washy","woebegone","wonky","woozy","wordplay","wordsmith","wunderkind","wuthering","xylophone","yahoo","yokel","yo-yo","zaftig","zeitgeist","zenzizenzizenzic (yes, this is a word!)","zephyr","zeppelin","ziggurat","zigzag","zonked","zoom","zydeco"]);
 			}
-			try{
-				BdApi.getData("BetterUploads", "settings");
-			}catch{
+			if(!BdApi.getData("BetterUploads", "settings")){
 				BdApi.setData("BetterUploads", "settings", {"Agreement": "", "AntiVirusService": "DocConversionAPI", "AuthenticatingColor": "#40ad48", "CuttlyKey": "", "DocConversionAPIKey": "", "DoneColor": "#00adef", "FailedColor": "#d12229", "FileCountLimit": 1, "FileSizeLimit": "", "HotkeyIncriment": 0.25, "Hotkeys":{"ScaleIncrease": [ 35], "ScaleDecrease": [ 36]}, "RebrandlyKey": "", "ShortLinkService": "Tinyurl", "UploadService": "Gofile", "UploadingColor": "#0f52ba", "UploadsScale": 1, "UseAntiVirus": false, "UseFileCountLimit": false, "UseFileSizeLimit": false, "UseShortLink": false, "VirusTotalKey": ""});
 			}
 			
@@ -337,32 +331,6 @@ var BetterUploads = (() => {
 				for(var file of files){
 					window.BetterUploadsFiles[name].size = window.BetterUploadsFiles[name].size + file.size;
 					window.BetterUploadsFiles[name].files[file.name] = {"code":"","path":file.path,"shorturl":"","size":file.size,"url":"","virusscan":""}
-				}
-			}
-			function addUploadButton(){
-				if(!document.getElementById("BetterUploads-Button")){
-					if(document.querySelector(ZLibrary.DiscordSelectors.Textarea.button)){
-						var HTML = `<svg id="svg" width="24" height="24" class="`+document.querySelector(DiscordSelectors.Textarea.button).firstChild.className.baseVal+`" aria-hidden="false" viewBox="0 0 500 500"><path fill="currentColor" d="M446.844,208.875C447.625,203.313,448,197.656,448,192c0-70.563-57.406-128-128-128   c-40.938,0-78.531,19.344-102.344,51.063C209.25,113.031,200.688,112,192,112c-61.75,0-112,50.25-112,112   c0,1.563,0.031,3.094,0.094,4.625C33.813,242.375,0,285.313,0,336c0,61.75,50.25,112,112,112h272c70.594,0,128-57.406,128-128   C512,273.344,486.344,231.188,446.844,208.875z M384,416H112c-44.188,0-80-35.813-80-80s35.813-80,80-80   c2.438,0,4.75,0.5,7.125,0.719c-4.5-10-7.125-21.031-7.125-32.719c0-44.188,35.813-80,80-80c14.438,0,27.813,4.125,39.5,10.813   C246,120.25,280.156,96,320,96c53.031,0,96,42.969,96,96c0,12.625-2.594,24.625-7.031,35.688C449.813,238.75,480,275.688,480,320   C480,373.031,437.031,416,384,416z"></path><path fill="currentColor" d="M 160,288 224,288 224,384 288,384 288,288 352,288 256,192  z"></path></svg>`
-						var Container = document.querySelector(DiscordSelectors.Textarea.buttons);
-						var Clone = Container.firstChild.cloneNode(true);
-						var Template = document.createElement('template');
-						Template.innerHTML = HTML;
-						Container.appendChild(Clone);
-						Container.lastChild.children[0].children[0].remove();
-						Container.lastChild.children[0].appendChild(Template.content.firstChild);
-						Container.lastChild.id = "BetterUploads-Button"
-						Container.lastChild.classList.add("BetterUploads-Component" )
-						Container.lastChild.onmousedown = function(event){
-							if(event.button == 0){
-								document.getElementById("BetterUploads-FileInput").click();
-							}else if(event.button == 1){
-								
-							}else if(event.button == 2){
-								document.getElementById("BetterUploads-GUIContainer").classList.toggle("BetterUploads-Hidden");
-								updateGUI();
-							}
-						}
-					}
 				}
 			}
 			function generateName(){
@@ -790,6 +758,7 @@ var BetterUploads = (() => {
 						},
 					() => {},
 				);
+				updateChat();
 			}
 			function formatMessage(files){
 				var MessageJson = {};
@@ -801,23 +770,6 @@ var BetterUploads = (() => {
 					}
 				}
 				return "!!!BETTERUPLOADS!!!"+JSON.stringify(MessageJson)+"!!!BETTERUPLOADS!!!";
-			}
-			function updateChat(){
-				for(var element of document.querySelectorAll(".da-message .da-contents .da-markup")){
-					if((element.innerHTML.split("!!!BETTERUPLOADS!!!").length-1) % 2 === 0 && element.innerHTML.split("!!!BETTERUPLOADS!!!").length-1 > 0){
-						for(var i=0;i<(element.innerHTML.split("!!!BETTERUPLOADS!!!").length-1)/2;i++){
-							if (/^[\],:{}\s]*$/.test(element.innerHTML.split("!!!BETTERUPLOADS!!!")[1+(i*2)].replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
-								var files = JSON.parse(element.innerHTML.split("!!!BETTERUPLOADS!!!")[1+(i*2)]);
-								element.innerHTML = "";
-								for(var file of Object.keys(files)){
-									if(files[file].hasOwnProperty("size") && files[file].hasOwnProperty("url")){
-										element.innerHTML += `<div class="BetterUploads-MessageFileContainer"><img class="BetterUploads-MessageFileType" src="/assets/985ea67d2edab4424c62009886f12e44.svg" alt="Attachment file type: unknown" title="unknown"><div class="BetterDiscord-MessageFileInfoContainer"><div class="BetterDiscord-MessageFileTitleContainer"><a class="BetterDiscord-MessageFileTitle" href="https://`+files[file].url+`" target="_blank">`+file+`</a></div><div class="BetterDiscord-MessageFileStatus">`+formatSizeUnits(files[file].size)+`</div></div><a class="BetterDiscord-MessageFileDownloadButtonContainer" href="https://`+files[file].url+`" target="_blank"><svg class="BetterDiscord-MessageFileDownloadButton" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"></path><path class="fill" fill="currentColor" d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path></g></svg></a></div>`;
-									}
-								}
-							}
-						}
-					}
-				}
 			}
 			// END CHAT
 			
@@ -879,10 +831,6 @@ var BetterUploads = (() => {
 			// END SETTINGS
 			
 			// OTHER
-			setInterval(function(){
-				updateChat();
-				addUploadButton();
-			},100);
 			async function processUpload(name,files){
 				if(Object.keys(files).length > 0){
 					try{
@@ -996,18 +944,118 @@ var BetterUploads = (() => {
 				}
 				document.getElementById("BetterUploads-FileInput").value = '';
 			}
+			function updateChat(){
+				for(var element of document.querySelectorAll(".da-message .da-contents .da-markup")){
+					if((element.innerHTML.split("!!!BETTERUPLOADS!!!").length-1) % 2 === 0 && element.innerHTML.split("!!!BETTERUPLOADS!!!").length-1 > 0){
+						for(var i=0;i<(element.innerHTML.split("!!!BETTERUPLOADS!!!").length-1)/2;i++){
+							if (/^[\],:{}\s]*$/.test(element.innerHTML.split("!!!BETTERUPLOADS!!!")[1+(i*2)].replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+								var files = JSON.parse(element.innerHTML.split("!!!BETTERUPLOADS!!!")[1+(i*2)]);
+								element.innerHTML = "";
+								for(var file of Object.keys(files)){
+									if(files[file].hasOwnProperty("size") && files[file].hasOwnProperty("url")){
+										element.innerHTML += `<div class="BetterUploads-MessageFileContainer"><img class="BetterUploads-MessageFileType" src="/assets/985ea67d2edab4424c62009886f12e44.svg" alt="Attachment file type: unknown" title="unknown"><div class="BetterDiscord-MessageFileInfoContainer"><div class="BetterDiscord-MessageFileTitleContainer"><a class="BetterDiscord-MessageFileTitle" href="https://`+files[file].url+`" target="_blank">`+file+`</a></div><div class="BetterDiscord-MessageFileStatus">`+formatSizeUnits(files[file].size)+`</div></div><a class="BetterDiscord-MessageFileDownloadButtonContainer" href="https://`+files[file].url+`" target="_blank"><svg class="BetterDiscord-MessageFileDownloadButton" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"></path><path class="fill" fill="currentColor" d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path></g></svg></a></div>`;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			function addUploadButton(){
+				if(!document.getElementById("BetterUploads-Button")){
+					if(document.querySelector(ZLibrary.DiscordSelectors.Textarea.button)){
+						var HTML = `<svg id="svg" width="24" height="24" class="`+document.querySelector(DiscordSelectors.Textarea.button).firstChild.className.baseVal+`" aria-hidden="false" viewBox="0 0 500 500"><path fill="currentColor" d="M446.844,208.875C447.625,203.313,448,197.656,448,192c0-70.563-57.406-128-128-128   c-40.938,0-78.531,19.344-102.344,51.063C209.25,113.031,200.688,112,192,112c-61.75,0-112,50.25-112,112   c0,1.563,0.031,3.094,0.094,4.625C33.813,242.375,0,285.313,0,336c0,61.75,50.25,112,112,112h272c70.594,0,128-57.406,128-128   C512,273.344,486.344,231.188,446.844,208.875z M384,416H112c-44.188,0-80-35.813-80-80s35.813-80,80-80   c2.438,0,4.75,0.5,7.125,0.719c-4.5-10-7.125-21.031-7.125-32.719c0-44.188,35.813-80,80-80c14.438,0,27.813,4.125,39.5,10.813   C246,120.25,280.156,96,320,96c53.031,0,96,42.969,96,96c0,12.625-2.594,24.625-7.031,35.688C449.813,238.75,480,275.688,480,320   C480,373.031,437.031,416,384,416z"></path><path fill="currentColor" d="M 160,288 224,288 224,384 288,384 288,288 352,288 256,192  z"></path></svg>`
+						var Container = document.querySelector(DiscordSelectors.Textarea.buttons);
+						var Clone = Container.firstChild.cloneNode(true);
+						var Template = document.createElement('template');
+						Template.innerHTML = HTML;
+						Container.appendChild(Clone);
+						Container.lastChild.children[0].children[0].remove();
+						Container.lastChild.children[0].appendChild(Template.content.firstChild);
+						Container.lastChild.id = "BetterUploads-Button"
+						Container.lastChild.classList.add("BetterUploads-Component" )
+						Container.lastChild.onmousedown = function(event){
+							if(event.button == 0){
+								document.getElementById("BetterUploads-FileInput").click();
+							}else if(event.button == 1){
+								
+							}else if(event.button == 2){
+								document.getElementById("BetterUploads-GUIContainer").classList.toggle("BetterUploads-Hidden");
+							}
+						}
+					}
+				}
+			}
 			function startup(){
 				loadSettings();
 				window.BetterUploadsUploadShown = "";
 				scaleGui(window.BetterUploadsSettings.UploadsScale);
+				updateGUI();
+				updateChat();
+				addUploadButton();
 			}
 			// END OTHER
 		}
 
+		
+		onSwitch(){
+			function formatSizeUnits(bytes){
+				if (bytes >= 1073741824){ bytes = (bytes / 1073741824).toFixed(2) + " GB"; }
+				else if (bytes >= 1048576){ bytes = (bytes / 1048576).toFixed(2) + " MB"; }
+				else if (bytes >= 1024){ bytes = (bytes / 1024).toFixed(2) + " KB"; }
+				else if (bytes > 1){ bytes = bytes + " bytes"; }
+				else if (bytes == 1){ bytes = bytes + " byte"; }
+				else{ bytes = "0 bytes"; }
+				return bytes;
+			}
+			function updateChat(){
+				for(var element of document.querySelectorAll(".da-message .da-contents .da-markup")){
+					if((element.innerHTML.split("!!!BETTERUPLOADS!!!").length-1) % 2 === 0 && element.innerHTML.split("!!!BETTERUPLOADS!!!").length-1 > 0){
+						for(var i=0;i<(element.innerHTML.split("!!!BETTERUPLOADS!!!").length-1)/2;i++){
+							if (/^[\],:{}\s]*$/.test(element.innerHTML.split("!!!BETTERUPLOADS!!!")[1+(i*2)].replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+								var files = JSON.parse(element.innerHTML.split("!!!BETTERUPLOADS!!!")[1+(i*2)]);
+								element.innerHTML = "";
+								for(var file of Object.keys(files)){
+									if(files[file].hasOwnProperty("size") && files[file].hasOwnProperty("url")){
+										element.innerHTML += `<div class="BetterUploads-MessageFileContainer"><img class="BetterUploads-MessageFileType" src="/assets/985ea67d2edab4424c62009886f12e44.svg" alt="Attachment file type: unknown" title="unknown"><div class="BetterDiscord-MessageFileInfoContainer"><div class="BetterDiscord-MessageFileTitleContainer"><a class="BetterDiscord-MessageFileTitle" href="https://`+files[file].url+`" target="_blank">`+file+`</a></div><div class="BetterDiscord-MessageFileStatus">`+formatSizeUnits(files[file].size)+`</div></div><a class="BetterDiscord-MessageFileDownloadButtonContainer" href="https://`+files[file].url+`" target="_blank"><svg class="BetterDiscord-MessageFileDownloadButton" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"></path><path class="fill" fill="currentColor" d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path></g></svg></a></div>`;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			function addUploadButton(){
+				if(!document.getElementById("BetterUploads-Button")){
+					if(document.querySelector(ZLibrary.DiscordSelectors.Textarea.button)){
+						var HTML = `<svg id="svg" width="24" height="24" class="`+document.querySelector(DiscordSelectors.Textarea.button).firstChild.className.baseVal+`" aria-hidden="false" viewBox="0 0 500 500"><path fill="currentColor" d="M446.844,208.875C447.625,203.313,448,197.656,448,192c0-70.563-57.406-128-128-128   c-40.938,0-78.531,19.344-102.344,51.063C209.25,113.031,200.688,112,192,112c-61.75,0-112,50.25-112,112   c0,1.563,0.031,3.094,0.094,4.625C33.813,242.375,0,285.313,0,336c0,61.75,50.25,112,112,112h272c70.594,0,128-57.406,128-128   C512,273.344,486.344,231.188,446.844,208.875z M384,416H112c-44.188,0-80-35.813-80-80s35.813-80,80-80   c2.438,0,4.75,0.5,7.125,0.719c-4.5-10-7.125-21.031-7.125-32.719c0-44.188,35.813-80,80-80c14.438,0,27.813,4.125,39.5,10.813   C246,120.25,280.156,96,320,96c53.031,0,96,42.969,96,96c0,12.625-2.594,24.625-7.031,35.688C449.813,238.75,480,275.688,480,320   C480,373.031,437.031,416,384,416z"></path><path fill="currentColor" d="M 160,288 224,288 224,384 288,384 288,288 352,288 256,192  z"></path></svg>`
+						var Container = document.querySelector(DiscordSelectors.Textarea.buttons);
+						var Clone = Container.firstChild.cloneNode(true);
+						var Template = document.createElement('template');
+						Template.innerHTML = HTML;
+						Container.appendChild(Clone);
+						Container.lastChild.children[0].children[0].remove();
+						Container.lastChild.children[0].appendChild(Template.content.firstChild);
+						Container.lastChild.id = "BetterUploads-Button"
+						Container.lastChild.classList.add("BetterUploads-Component" )
+						Container.lastChild.onmousedown = function(event){
+							if(event.button == 0){
+								document.getElementById("BetterUploads-FileInput").click();
+							}else if(event.button == 1){
+								
+							}else if(event.button == 2){
+								document.getElementById("BetterUploads-GUIContainer").classList.toggle("BetterUploads-Hidden");
+							}
+						}
+					}
+				}
+			}
+			updateChat();
+			addUploadButton();
+		}
+		
         onStop() {
-			clearInterval(window.addButon);
 			document.querySelectorAll('.BetterUploads-Component').forEach(e => e.remove());
-			saveSettings();
         }
 		
 		load() {
